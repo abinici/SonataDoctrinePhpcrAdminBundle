@@ -74,6 +74,7 @@ class ModelManager implements ModelManagerInterface
     {
         try {
             $this->dm->persist($object);
+            $this->dm->bindTranslation($object, $object->getLocale());
             $this->dm->flush();
         } catch (\Exception $e) {
             throw new ModelManagerException('', 0, $e);
@@ -89,6 +90,7 @@ class ModelManager implements ModelManagerInterface
     {
         try {
             $this->dm->persist($object);
+            $this->dm->bindTranslation($object, $object->getLocale());
             $this->dm->flush();
         } catch (\Exception $e) {
             throw new ModelManagerException('', 0, $e);
